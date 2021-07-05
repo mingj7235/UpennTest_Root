@@ -1,12 +1,11 @@
 package com.joshua.service.board;
 
+import com.joshua.domain.boards.Board;
+import com.joshua.dto.BoardListResponseDto;
+import com.joshua.dto.BoardResponseDto;
+import com.joshua.dto.BoardSaveRequestDto;
+import com.joshua.dto.BoardUpdateRequestDto;
 import com.joshua.repository.boards.BoardsRepository;
-import com.joshua.springweb.awsspring.domain.posts.Posts;
-import com.joshua.springweb.awsspring.domain.posts.PostsRepository;
-import com.joshua.springweb.awsspring.web.dto.PostsListResponseDto;
-import com.joshua.springweb.awsspring.web.dto.PostsResponseDto;
-import com.joshua.springweb.awsspring.web.dto.PostsSaveRequestDto;
-import com.joshua.springweb.awsspring.web.dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,44 +19,38 @@ public class BoardsService {
     private final BoardsRepository boardsRepository;
 
     @Transactional
-    public Long save (PostsSaveRequestDto requestDto) {
+    public Long save (BoardSaveRequestDto requestDto) {
         return boardsRepository.save(requestDto.toEntity()).getId();
     }
 
     @Transactional
-    public Long update (Long id, PostsUpdateRequestDto requestDto) {
+    public Long update (Long id, BoardUpdateRequestDto requestDto) {
 
-        Posts posts = boardsRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 사용자가 없슴 id : "+id));
-        posts.update(requestDto.getTitle(), requestDto.getContent());
+        Board boards = boardsRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 사용자가 없슴 id : "+id));
+        boards.update(requestDto.getTitle(), requestDto.getContent());
 
         return id;
     }
 
     @Transactional
     public void delete (Long id) {
-        Posts posts = boardsRepository.findById(id).orElseThrow( () -> new IllegalArgumentException("해당 사용자가 없음 id :" + id));
-        boardsRepository.delete(posts);
+        Board board = boardsRepository.findById(id).orElseThrow( () -> new IllegalArgumentException("해당 사용자가 없음 id :" + id));
+        boardsRepository.delete(board);
     }
 
-    public PostsResponseDto findById (Long id) {
-        Posts entity = boardsRepository.findById(id)
+    public BoardResponseDto findById (Long id) {
+        Board entity = boardsRepository.findById(id)
                 .orElseThrow( () -> new IllegalArgumentException("해당 사용자가 없습니다. id : " + id));
 
-        return new PostsResponseDto(entity);
+        return new BoardResponseDto(entity);
     }
 
     @Transactional (readOnly = true)
-    public List<PostsListResponseDto> findAllDesc () {
+    public List<BoardListResponseDto> findAllDesc () {
         return boardsRepository.findAllDesc().stream()
-                .map(PostsListResponseDto :: new)
-                //.map(posts -> new PostsListResponseDto(posts))
-                //postsRepository 결과로 넘어온 Posts의 Stream을 map을 통해 PostsListResponseDto 변환 -> List로 반환하는 메소드
+                .map(BoardListResponseDto :: new)
                 .collect(Collectors.toList());
     }
 
-    @Transactional
-    public String totalNum () {
-        return boardsRepository.totalNum();
-    }
 
 }
