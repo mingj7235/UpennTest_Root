@@ -1,7 +1,5 @@
 package com.joshua.domain;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,8 +7,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-@NoArgsConstructor
-@Getter
 public class Member {
     @Id
     @GeneratedValue
@@ -22,8 +18,22 @@ public class Member {
     @Column
     private String email;
 
+    public Member () {
+
+    }
     public Member(String name, String email) {
         this.name = name;
         this.email = email;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+    public String getEmail() {
+        return email;
     }
 }
