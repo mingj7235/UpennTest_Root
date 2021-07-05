@@ -1,0 +1,5 @@
+rootProject.name = 'UpennTest_Root'
+include 'UpennTest-api'
+include 'UpennTest-common'
+include 'UpennTest-web'
+
