@@ -1,3 +1,9 @@
 [submodule "UpennTest_members"]
 	path = UpennTest_members
 	url = https://github.com/mingJ7235/UpennTest_members.git
+[submodule "UpennTest_common"]
+	path = UpennTest_common
+	url = https://github.com/mingJ7235/UpennTest_common.git
+[submodule "UpennTest_boards"]
+	path = UpennTest_boards
+	url = https://github.com/mingJ7235/UpennTest_boards.git
