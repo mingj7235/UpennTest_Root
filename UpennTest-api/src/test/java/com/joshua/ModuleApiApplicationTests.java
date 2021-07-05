@@ -1,6 +1,6 @@
 package com.joshua;
 
-import com.joshua.domain.Member;
+import com.joshua.domain.members.Member;
 import com.joshua.service.MemberServiceCustom;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,8 +19,5 @@ public class ModuleApiApplicationTests {
 
     @Test
     public void save() {
-        Member member = new Member("joshua", "joshua@email.com");
-        Long id = memberServiceCustom.signup(member);
-        assertThat(id, is(1L));
     }
 }

@@ -1,3 +1,3 @@
 rootProject.name = 'UpennTest_Root'
-include 'UpennTest-api','UpennTest-common','UpennTest-web'
+include 'UpennTest-api','UpennTest-common','UpennTest-web','UpennTest-config'
 

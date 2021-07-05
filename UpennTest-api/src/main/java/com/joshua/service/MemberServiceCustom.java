@@ -1,7 +1,7 @@
 package com.joshua.service;
 
-import com.joshua.domain.Member;
-import com.joshua.repository.MemberRepository;
+import com.joshua.domain.members.Member;
+import com.joshua.repository.members.MemberRepository;
 import org.springframework.stereotype.Service;
 
 @Service
