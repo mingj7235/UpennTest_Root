@@ -7,6 +7,7 @@ import com.joshua.dto.BoardsSaveRequestDto;
 import com.joshua.dto.BoardsUpdateRequestDto;
 import com.joshua.repository.boards.BoardsRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -45,9 +46,10 @@ public class BoardsService {
         return new BoardsResponseDto(entity);
     }
 
+    //findAll을 DESC로 바꾸는 방법
     @Transactional (readOnly = true)
     public List<BoardsListResponseDto> findAllDesc () {
-        return boardsRepository.findAll().stream()
+        return boardsRepository.findAll(Sort.by(Sort.Direction.DESC, "id")).stream()
                 .map(BoardsListResponseDto:: new)
                 .collect(Collectors.toList());
     }

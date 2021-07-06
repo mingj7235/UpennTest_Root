@@ -6,6 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @Controller
 public class IndexController {
@@ -14,6 +16,7 @@ public class IndexController {
 
     @GetMapping("/")
     public String index (Model model) {
+
         model.addAttribute("boards", boardsService.findAllDesc());
 
         return "index";
