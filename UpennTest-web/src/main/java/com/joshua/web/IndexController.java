@@ -6,8 +6,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import java.util.List;
-
 @RequiredArgsConstructor
 @Controller
 public class IndexController {
@@ -20,5 +18,11 @@ public class IndexController {
         model.addAttribute("boards", boardsService.findAllDesc());
 
         return "index";
+    }
+
+    @GetMapping("/boards/save")
+    public String save (Model model) {
+
+        return "boards-save";
     }
 }
