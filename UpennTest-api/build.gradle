@@ -1,7 +1,6 @@
 bootJar { enabled = false }
 jar { enabled = true }
 dependencies {
-    compile('org.springframework.boot:spring-boot-starter-web')
     implementation project(':UpennTest-core')
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }

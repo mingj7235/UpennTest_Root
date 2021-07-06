@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface BoardsRepository extends JpaRepository<Boards, Long> {
 
-    @Query ("SELECT p FROM Board p ORDER BY p.id DESC")
+    @Query ("SELECT p FROM BOARDS p ORDER BY p.id DESC")
     List<Boards> findAllDesc();
 }

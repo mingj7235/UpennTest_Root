@@ -9,7 +9,7 @@ import javax.persistence.*;
 
 @Getter
 @NoArgsConstructor
-@Entity (name = "Upenn_Board")
+@Entity
 public class Boards extends BaseTimeEntity {
 
     @Id
@@ -22,6 +22,7 @@ public class Boards extends BaseTimeEntity {
     @Column (columnDefinition = "TEXT", nullable = false)
     private String content;
 
+    @Column
     private String author;
 
     public void update (String title, String content) {
