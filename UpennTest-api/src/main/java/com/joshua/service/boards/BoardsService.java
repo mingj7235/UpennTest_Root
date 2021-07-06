@@ -47,7 +47,7 @@ public class BoardsService {
 
     @Transactional (readOnly = true)
     public List<BoardsListResponseDto> findAllDesc () {
-        return boardsRepository.findAllDesc().stream()
+        return boardsRepository.findAll().stream()
                 .map(BoardsListResponseDto:: new)
                 .collect(Collectors.toList());
     }
