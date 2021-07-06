@@ -1,0 +1,45 @@
+<!-- 현재 머스테치 파일(index.mustache)을 기주능로 다른 파일을 가져온다.
+    레이아웃의 분리
+  -->
+{{>layout/header}}
+
+    <h1>Springboot web service test</h1>
+
+    <div class="col-md-12">
+
+        <div class="row">
+            <div class="col-md-6">
+                <a href="/posts/save" role="button" class="btn btn-primary"> 글등록 </a>
+
+
+            </div>
+        </div>
+        <br>
+<!--     게시글 목록 출력 영역-->
+        <table class="table table-horizontal table-bordered">
+            <thead class="thead-strong">
+                <tr>
+                    <th>게시글 번호</th>
+                    <th>제목</th>
+                    <th>작성자</th>
+                    <th>최종수정일</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+<!--              머스테치의 문법. posts라는 List를 순회함. 이것은 controller에서 넘겨줌. Java의 for문임
+                  태그처럼 닫는 것이 있으니 잊지말고 닫아준다! 안닫아주면 에러남-->
+                {{#boards}}
+                    <tr>
+<!--                        List에서 뽑아낸 객체의 필드를 사용하는 문법임. mustache의 문법 ! -->
+                        <td>{{id}}</td>
+                        <td><a href="/posts/detail/{{id}}">{{title}}</a></td>
+                        <td>{{author}}</td>
+                        <td>{{modifiedDate}}</td>
+                    </tr>
+                {{/boards}}
+
+            </tbody>
+        </table>
+    </div>
+
+{{>layout/footer}}
