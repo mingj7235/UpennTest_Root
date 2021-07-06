@@ -1,7 +1,5 @@
 package com.joshua;
 
-import com.joshua.domain.members.Member;
-import com.joshua.service.MemberServiceCustom;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

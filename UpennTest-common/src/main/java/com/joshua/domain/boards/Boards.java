@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor
 @Entity
-public class Board extends BaseTimeEntity {
+public class Boards extends BaseTimeEntity {
 
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
@@ -29,7 +29,7 @@ public class Board extends BaseTimeEntity {
     }
 
     @Builder
-    public Board(String title, String content, String author) {
+    public Boards(String title, String content, String author) {
         this.title = title;
         this.content = content;
         this.author = author;

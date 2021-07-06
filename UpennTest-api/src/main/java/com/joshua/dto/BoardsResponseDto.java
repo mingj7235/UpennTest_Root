@@ -1,17 +1,17 @@
 package com.joshua.dto;
 
-import com.joshua.domain.boards.Board;
+import com.joshua.domain.boards.Boards;
 import lombok.Getter;
 
 @Getter
-public class BoardResponseDto {
+public class BoardsResponseDto {
 
     private Long id;
     private String title;
     private String content;
     private String author;
 
-    public BoardResponseDto(Board entity) {
+    public BoardsResponseDto(Boards entity) {
         this.id = entity.getId();
         this.title = entity.getTitle();
         this.content = entity.getContent();
