@@ -1,11 +1,9 @@
-package com.joshua.repository;
+package com.joshua.repository.boards;
 
 import com.joshua.domain.boards.Boards;
-import com.joshua.repository.boards.BoardsRepository;
 import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -15,9 +13,8 @@ import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class BoardRepositoryTest {
+public class BoardsRepositoryTest {
 
-    @Autowired
     BoardsRepository boardsRepository;
 
     @After
@@ -26,11 +23,11 @@ public class BoardRepositoryTest {
     }
 
     @Test
-    public void 게시글저장하기 () {
+    public void 게시판저장테스트 () {
         //given
-        String title = "테스트";
-        String content = "테스트본문";
-        String author = "테스트작성자";
+        String title = "테스트타이틀";
+        String content = "테스트컨텐트";
+        String author = "테스트글쓴이";
 
         boardsRepository.save(Boards.builder().title(title).content(content).author(author).build());
 
@@ -41,7 +38,6 @@ public class BoardRepositoryTest {
         //then
 
         Boards testBoard = boardsList.get(0);
-
         assertThat(testBoard.getTitle()).isEqualTo(title);
 
     }

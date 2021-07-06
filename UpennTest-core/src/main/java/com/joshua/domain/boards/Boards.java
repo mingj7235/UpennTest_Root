@@ -9,9 +9,10 @@ import javax.persistence.*;
 
 @Getter
 @NoArgsConstructor
-@Entity
+@Entity (name = "Upenn_Board")
 public class Boards extends BaseTimeEntity {
 
+    @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
 

@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        springBootVersion = '2.1.7.RELEASE'
+        springBootVersion = '2.3.6.RELEASE'
     }
     repositories {
         mavenCentral()
@@ -11,7 +11,7 @@ buildscript {
     }
 }
 
-subprojects {
+allprojects {
     group 'com.joshua'
     version '1.0'
 
@@ -26,6 +26,11 @@ subprojects {
         mavenCentral()
         jcenter()
     }
+}
+
+subprojects {
+
+    apply plugin: 'io.spring.dependency-management'
 
     dependencies {
         annotationProcessor("org.projectlombok:lombok")
@@ -37,24 +42,11 @@ subprojects {
 
 }
 
-project (':UpennTest-common') {
-    dependencies {
-        compile project(':UpennTest-config')
-    }
-}
 
-project(':UpennTest-api') {
-    dependencies {
-        compile project(':UpennTest-common')
-        compile project(':UpennTest-config')
-    }
-}
 
 project(':UpennTest-web') {
     dependencies {
-        compile project(':UpennTest-common')
-        compile project(':UpennTest-config')
-        compile project(':UpennTest-api')
+        implementation project(':UpennTest-api')
     }
 }
 

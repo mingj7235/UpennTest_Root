@@ -10,7 +10,7 @@ import javax.persistence.*;
 
 @Getter
 @NoArgsConstructor
-@Entity
+@Entity (name = "Upenn_Member")
 public class Member extends BaseTimeEntity {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
@@ -26,7 +26,6 @@ public class Member extends BaseTimeEntity {
     private String picture;
 
     @Enumerated(EnumType.STRING)
-
     @Column(nullable = false)
     private Role role;
 
