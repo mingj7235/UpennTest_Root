@@ -51,7 +51,7 @@ var main = {
 
         $.ajax({
             type : 'PUT',
-            url : '/api/v1/posts/'+id,
+            url : '/api/boards/'+id,
             dataType : 'json',
             contentType : 'application/json; charset=utf-8',
             data : JSON.stringify(data)
@@ -69,11 +69,11 @@ var main = {
 
         $.ajax ({
             type : 'DELETE',
-            url : '/api/v1/posts/'+id,
+            url : '/api/boards/'+id,
             dataType : 'json',
             contentType : 'application/json; charset=utf-8'
         }).done (function() {
-            alert('글이 삭제되었습니다.');
+            alert(id + '번글이 삭제되었습니다.');
             window.location.href = "/";
         }).fail (function(error) {
             alert("에러메세지 : " +JSON.stringify(error));
