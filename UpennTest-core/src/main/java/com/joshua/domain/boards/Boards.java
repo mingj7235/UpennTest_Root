@@ -22,7 +22,9 @@ public class Boards extends BaseTimeEntity {
     @Column (columnDefinition = "TEXT", nullable = false)
     private String content;
 
-    @Column
+    //@Column
+    @ManyToOne
+    @JoinColumn (name = "member_id")
     private String author;
 
     public void update (String title, String content) {

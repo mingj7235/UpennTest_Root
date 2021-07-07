@@ -24,22 +24,7 @@ public class Category {
     @OneToMany (mappedBy = "category")
     private List<Book> books = new ArrayList<Book>();
 
-    public static void insertAndFind (EntityManager em) {
-        Category category = new Category();
-        category.setName("IT");
-        em.persist(category);
 
-        Book book = new Book();
-        book.setTitle("Operation System");
-        book.setCategory(category);
-        em.persist(book);
-
-        List<Book> bookList = category.getBooks();
-        for(Book item : bookList) {
-            System.out.println("출력 ? "+item.getTitle());
-
-        }
-    }
 
 }
 
