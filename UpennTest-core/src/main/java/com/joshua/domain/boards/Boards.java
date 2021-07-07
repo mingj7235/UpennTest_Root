@@ -1,6 +1,7 @@
 package com.joshua.domain.boards;
 
 import com.joshua.domain.BaseTimeEntity;
+import com.joshua.domain.members.Member;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,9 +23,10 @@ public class Boards extends BaseTimeEntity {
     @Column (columnDefinition = "TEXT", nullable = false)
     private String content;
 
-    //@Column
-    @ManyToOne
-    @JoinColumn (name = "member_id")
+//    @ManyToOne
+//    @JoinColumn (name = "member_id")
+//    private Member author;
+    @Column
     private String author;
 
     public void update (String title, String content) {
@@ -33,7 +35,7 @@ public class Boards extends BaseTimeEntity {
     }
 
     @Builder
-    public Boards(String title, String content, String author) {
+    public Boards(String title, String content, /*Member author*/ String author) {
         this.title = title;
         this.content = content;
         this.author = author;
