@@ -16,13 +16,12 @@ public class IndexController {
     public String index (Model model) {
 
         model.addAttribute("boards", boardsService.findAllDesc());
-
         return "index";
     }
 
     @GetMapping("/boards/save")
     public String save (Model model) {
-
+        System.out.println(">>>>>>>>>>>>>>>>들어옴");
         return "boards-save";
     }
 }

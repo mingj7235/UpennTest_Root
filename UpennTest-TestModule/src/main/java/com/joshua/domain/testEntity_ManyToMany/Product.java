@@ -24,3 +24,5 @@ public class Product {
     @ManyToMany (mappedBy = "products")
     private List<Customer> customers = new ArrayList<Customer>();
 }
+
+
