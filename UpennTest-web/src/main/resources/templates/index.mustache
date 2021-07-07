@@ -11,6 +11,10 @@
             <div class="col-md-6">
                 <a href="/boards/save" role="button" class="btn btn-primary"> 글등록 </a>
 
+                {{^memberName}}
+                    <a href="/oauth2/authoriztion/google" class="btn btn-success active" role="button">Google Login</a>
+                {{/memberName}}
+
 
             </div>
         </div>

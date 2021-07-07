@@ -2,5 +2,6 @@
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-mustache')
     implementation project(':UpennTest-api')
+    implementation project(':UpennTest-core')
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
