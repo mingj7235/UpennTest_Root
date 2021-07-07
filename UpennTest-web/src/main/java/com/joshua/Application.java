@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 //@ComponentScan("com.joshua.domain.boards")
 
 @EnableJpaAuditing //Auditing을 하기위해서는 써야함
-@SpringBootApplication(scanBasePackages ="com.joshua")
+@SpringBootApplication(scanBasePackages ="com.joshua.domain")
 //@Configuration
 //@EnableAutoConfiguration
 
