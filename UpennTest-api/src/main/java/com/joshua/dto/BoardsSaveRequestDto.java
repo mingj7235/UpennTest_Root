@@ -16,7 +16,7 @@ public class BoardsSaveRequestDto {
     private String author;
 
     @Builder
-    public BoardsSaveRequestDto(String title, String content /*Member author*/, String author) {
+    public BoardsSaveRequestDto(String title, String content, /*Member author*/ String author) {
         this.title = title;
         this.content = content;
         this.author = author;

@@ -1,7 +1,8 @@
 package com.joshua.web;
 
+import com.joshua.config.auth.LoginUser;
+import com.joshua.config.auth.dto.SessionUser;
 import com.joshua.dto.BoardsResponseDto;
-import com.joshua.dto.BoardsUpdateRequestDto;
 import com.joshua.service.boards.BoardsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -16,9 +17,14 @@ public class IndexController {
 
 
     @GetMapping("/")
-    public String index (Model model) {
+    public String index (Model model, @LoginUser SessionUser user) {
 
         model.addAttribute("boards", boardsService.findAllDesc());
+
+        if (user != null) {
+            model.addAttribute("memberName", user.getName());
+        }
+
         return "index";
     }
 
