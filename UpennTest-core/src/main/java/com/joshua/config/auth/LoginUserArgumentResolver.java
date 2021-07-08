@@ -43,6 +43,6 @@ public class LoginUserArgumentResolver implements HandlerMethodArgumentResolver 
         //파라미터에 전달할 객체를 생성한다.
         //여기서는 세션에서 객체를 가져온다.
 
-        return httpSession.getAttribute("member");
+        return httpSession.getAttribute("user");
     }
 }
