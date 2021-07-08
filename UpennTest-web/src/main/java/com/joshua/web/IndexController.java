@@ -36,8 +36,9 @@ public class IndexController {
     }
 
     @GetMapping ("/boards/detail/{id}")
-    public String detail (@PathVariable Long id, Model model) {
+    public String detail (@PathVariable Long id, @LoginUser SessionUser user, Model model) {
         BoardsResponseDto dto = boardsService.findById(id);
+        model.addAttribute("memberName", user.getName());
         model.addAttribute("boards",dto);
         return "boards-detail";
 

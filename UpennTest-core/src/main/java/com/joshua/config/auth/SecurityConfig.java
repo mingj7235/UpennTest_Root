@@ -24,6 +24,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         //authorizeRequests가 선언되어야만, antMachers옵션을 사용가능하다.
 
                     .antMatchers("/", "/css/**", "/images/**", "/js/**", "/h2-console/**").permitAll()
+                    .antMatchers("/boards/detail/**").permitAll()
                     .antMatchers("/api/**")./*permitAll()*/hasRole(Role.GUEST.name())
                         //antMatchers : 권한 관리 대상을 지정하는 옵션이다.
                         //URL, HTTP메소드 별로 관리가 가능하다.

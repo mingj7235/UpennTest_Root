@@ -1,6 +1,9 @@
 {{>layout/header}}
 <h1>게시글 상세보기</h1>
 
+<div>
+    현재 접속자 : <span id = "connectedMember">{{memberName}}</span>
+</div>
 <div class="col-md-12">
     <div class="col-md-4">
         <form >
@@ -21,7 +24,7 @@
                 <input type="text" class="form-control" id="content" value="{{boards.content}}" readonly>
             </div>
         </form>
-        <a href="/boards/update/{{boards.id}}" role="button" class="btn btn-primary">수정</a>
+        <a href="/boards/update/{{boards.id}}" role="button" class="btn btn-primary" id="updatebtn">수정</a>
         <a href="/" role="button" class="btn btn-secondary">목록으로</a>
         <button type="button" class="btn btn-danger" id="btn-delete">삭제 </button>
     </div>
