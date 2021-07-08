@@ -1,7 +1,6 @@
 package com.joshua.dto;
 
 import com.joshua.domain.boards.Boards;
-import com.joshua.domain.members.Member;
 import lombok.Getter;
 
 import java.time.LocalDateTime;

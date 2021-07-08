@@ -1,7 +1,6 @@
 package com.joshua.domain.boards;
 
 import com.joshua.domain.BaseTimeEntity;
-import com.joshua.domain.members.Member;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

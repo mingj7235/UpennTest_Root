@@ -49,7 +49,7 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
 
         Member member = saveOrUpdate(attributes);
 
-        httpSession.setAttribute("user", new SessionUser(member));
+        httpSession.setAttribute("member", new SessionUser(member));
                 //SessionUser : 세션에 사용자 정보를 저장하기 위한 Dto 클래스다.
                 //
         /** 왜 User 클래스를 쓰지않고, 새로 만들어서 쓰는가!?

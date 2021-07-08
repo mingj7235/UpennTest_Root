@@ -1,4 +1,5 @@
 var main = {
+
     init : function () {
         var _this = this;
         $('#btn-save').on('click', function () {
@@ -83,3 +84,4 @@ var main = {
 };
 
 main.init();
+console.log('들어옴');
