@@ -4,6 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
+import javax.persistence.EntityManagerFactory;
+
 //@SpringBootApplication
 //@ComponentScan("com.joshua.domain.boards")
 
@@ -15,6 +17,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 public class Application {
 
     public static void main(String[] args) {
+
+
         SpringApplication.run(Application.class, args);
     }
 

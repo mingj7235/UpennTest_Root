@@ -25,17 +25,24 @@ public class Member extends BaseTimeEntity {
     @Column
     private String picture;
 
+    @ManyToOne
+    @JoinColumn (name = "LOCATION_ID")
+    private Location location;
+
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Role role;
 
     @Builder
-    public Member(String name, String email, String picture, Role role) {
+    public Member(String name, String email, String picture, Location location, Role role) {
         this.name = name;
         this.email = email;
         this.picture = picture;
+        this.location = location;
         this.role = role;
     }
+
+
 
     public Member update (String name, String picture) {
         this.name = name;
