@@ -1,6 +1,7 @@
 package com.joshua.dto;
 
 import com.joshua.domain.boards.Boards;
+import com.joshua.domain.members.Member;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

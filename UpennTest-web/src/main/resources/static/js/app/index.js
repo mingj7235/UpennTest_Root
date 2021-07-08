@@ -85,3 +85,6 @@ var main = {
 
 main.init();
 console.log('들어옴');
+
+var input_value = $('#author').val()
+console.log("value값 : "+typeof(input_value));

@@ -29,8 +29,9 @@ public class IndexController {
     }
 
     @GetMapping("/boards/save")
-    public String save (Model model) {
+    public String save (Model model, @LoginUser SessionUser user) {
         System.out.println(">>>>>>>>>>>>>>>>들어옴");
+        model.addAttribute("memberName", user.getName());
         return "boards-save";
     }
 
