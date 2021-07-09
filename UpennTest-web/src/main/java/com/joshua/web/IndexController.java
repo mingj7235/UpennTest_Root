@@ -53,9 +53,12 @@ public class IndexController {
         return "boards/boards-update";
     }
 
-    @GetMapping ("/member/mypage")
-    public String mypage (Model model) {
+    @GetMapping ("/member/mypage/{id}")
+    public String mypage (@PathVariable Long id, Model model) {
         System.out.println("들어옴");
+
+
+
         return "member/member-mypage";
     }
 
