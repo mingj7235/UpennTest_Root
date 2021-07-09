@@ -15,9 +15,18 @@ public class MemberService {
     private final MemberRepository memberRepository;
 
     @Transactional
-    public Optional<Member> member_detail (Long id) {
-        System.out.println("멤버 찾기");
-        return memberRepository.findById(id);
+//    public Optional<Member> member_detail (Long id) {
+//        System.out.println("멤버 찾기");
+//        return memberRepository.findById(id);
+//    }
+    public MemberResponseDto findById (Long id) {
+        Member entity = memberRepository.findById(id)
+                .orElseThrow( () -> new IllegalArgumentException("사용자없음 "));
+
+        return new MemberResponseDto(entity);
     }
+
+    @Transactional
+    public Long update (Long id)
 
 }
