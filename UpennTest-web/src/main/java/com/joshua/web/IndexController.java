@@ -2,6 +2,7 @@ package com.joshua.web;
 
 import com.joshua.config.auth.LoginUser;
 import com.joshua.config.auth.dto.SessionUser;
+import com.joshua.domain.members.Member;
 import com.joshua.dto.BoardsResponseDto;
 import com.joshua.service.boards.BoardsService;
 import lombok.RequiredArgsConstructor;
@@ -33,7 +34,7 @@ public class IndexController {
         System.out.println(">>>>>>>>>>>>>>>>들어옴");
         //System.out.println("user의 로케이션 : " + user.getLocation().getLocation());
         model.addAttribute("member", user);
-        return "boards-save";
+        return "boards/boards-save";
     }
 
     @GetMapping ("/boards/detail/{id}")
@@ -41,7 +42,7 @@ public class IndexController {
         BoardsResponseDto dto = boardsService.findById(id);
         model.addAttribute("member", user);
         model.addAttribute("boards",dto);
-        return "boards-detail";
+        return "boards/boards-detail";
 
     }
 
@@ -49,10 +50,13 @@ public class IndexController {
     public String update (@PathVariable Long id, Model model) {
         BoardsResponseDto dto = boardsService.findById(id);
         model.addAttribute("boards", dto);
-        return "boards-update";
+        return "boards/boards-update";
     }
 
-    //@GetMapping ("/member/mypage/")
-
+    @GetMapping ("/member/mypage")
+    public String mypage (Model model) {
+        System.out.println("들어옴");
+        return "member/member-mypage";
+    }
 
 }
