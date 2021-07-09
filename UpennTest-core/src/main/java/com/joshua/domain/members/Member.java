@@ -5,6 +5,7 @@ import com.joshua.domain.BaseTimeEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 
@@ -25,7 +26,8 @@ public class Member extends BaseTimeEntity {
     @Column
     private String picture;
 
-    @ManyToOne (fetch = FetchType.LAZY) //지연로딩. 즉, 필요할때만 가져오도록. 성능!
+    @ManyToOne
+    //지연로딩. 즉, 필요할때만 가져오도록. 성능!
     //LAZY의 사용은 proxy를 통해 조회가되며, 실제로 사용하는 시점에 DB를 조회하도록 하는 것이다.
     @JoinColumn (name = "LOCATION_ID")
     private Location location;
@@ -33,6 +35,8 @@ public class Member extends BaseTimeEntity {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Role role;
+
+
 
     @Builder
     public Member(String name, String email, String picture, Location location, Role role) {

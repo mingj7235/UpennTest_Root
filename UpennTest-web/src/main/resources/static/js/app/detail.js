@@ -1,4 +1,4 @@
-var member = $('#connectedMember').text();
+var member = $('#memberEmail_hidden').val();
 var author = $('#author').val();
 
 console.log(member + author);

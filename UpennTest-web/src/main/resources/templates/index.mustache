@@ -11,17 +11,18 @@
             <div class="col-md-6">
                 <a href="/boards/save" role="button" class="btn btn-primary"> 글등록 </a>
 
-                {{#memberName}}
-                    Logged in as : <span id="user">{{memberName}}</span>
+                {{#member}}
+                    Logged in as : <span id="user">{{member.name}}</span>
 
                                          <!-- /logout : 스프링 시큐리티에서 기본적으로 제공하는 로그아웃 URL
                                                 즉, 개발자가 별도로 저 URL에 해당하는 컨트롤러를 만들 필요가 없다. -->
+                    <a href="/member/mypage" class="btn active" role="button" id="mypage_btn">MyPage</a>
                     <a href="/logout" class="btn btn-info active" role="button">Logout</a>
-                {{/memberName}}
+                {{/member}}
 
-                {{^memberName}}
+                {{^member}}
                     <a href="/oauth2/authorization/google" class="btn btn-success active" role="button">Google Login</a>
-                {{/memberName}}
+                {{/member}}
 
 
             </div>

@@ -22,7 +22,7 @@ public class IndexController {
         model.addAttribute("boards", boardsService.findAllDesc());
 
         if (user != null) {
-            model.addAttribute("memberName", user.getName());
+            model.addAttribute("member", user);
         }
 
         return "index";
@@ -31,15 +31,15 @@ public class IndexController {
     @GetMapping("/boards/save")
     public String save (Model model, @LoginUser SessionUser user) {
         System.out.println(">>>>>>>>>>>>>>>>들어옴");
-        System.out.println("user의 로케이션 : " + user.getLocation());
-        model.addAttribute("memberName", user.getName());
+        //System.out.println("user의 로케이션 : " + user.getLocation().getLocation());
+        model.addAttribute("member", user);
         return "boards-save";
     }
 
     @GetMapping ("/boards/detail/{id}")
     public String detail (@PathVariable Long id, @LoginUser SessionUser user, Model model) {
         BoardsResponseDto dto = boardsService.findById(id);
-        model.addAttribute("memberName", user.getName());
+        model.addAttribute("member", user);
         model.addAttribute("boards",dto);
         return "boards-detail";
 
@@ -51,6 +51,8 @@ public class IndexController {
         model.addAttribute("boards", dto);
         return "boards-update";
     }
+
+    //@GetMapping ("/member/mypage/")
 
 
 }

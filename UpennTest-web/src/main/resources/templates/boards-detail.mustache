@@ -2,7 +2,8 @@
 <h1>게시글 상세보기</h1>
 
 <div>
-    현재 접속자 : <span id = "connectedMember">{{memberName}}</span>
+    현재 접속자 : <span id = "connectedMember">{{member.name}}</span>
+    <input type="hidden" id="memberEmail_hidden" value="{{member.email}}">
 </div>
 <div class="col-md-12">
     <div class="col-md-4">
