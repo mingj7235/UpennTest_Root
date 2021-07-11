@@ -2,12 +2,11 @@ package com.joshua.service.member;
 
 import com.joshua.domain.members.Member;
 import com.joshua.dto.MemberResponseDto;
+import com.joshua.dto.MemberUpdateRequestDto;
 import com.joshua.repository.members.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
@@ -27,6 +26,13 @@ public class MemberService {
     }
 
     @Transactional
-    public Long update (Long id)
+    public Long update (Long id, MemberUpdateRequestDto requestDto) {
+
+        Member member = memberRepository.findById(id).orElseThrow(
+                 () -> new IllegalArgumentException("해당 사용자가 없습니다."));
+        member.update(requestDto.getName(), requestDto.getPicture(), requestDto.getLocation());
+
+        return id;
+    }
 
 }

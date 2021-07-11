@@ -2,6 +2,7 @@ package com.joshua.web;
 
 import com.joshua.config.auth.LoginUser;
 import com.joshua.config.auth.dto.SessionUser;
+import com.joshua.domain.members.Location;
 import com.joshua.domain.members.Member;
 import com.joshua.dto.BoardsResponseDto;
 import com.joshua.service.boards.BoardsService;
@@ -34,6 +35,10 @@ public class IndexController {
         System.out.println(">>>>>>>>>>>>>>>>들어옴");
         //System.out.println("user의 로케이션 : " + user.getLocation().getLocation());
         model.addAttribute("member", user);
+
+        //update문이 들어가는지 확인 (save 페이지 들어갈 시) -> default 값 확인
+        user.setLocation(new Location(1L, "SEOUL"));
+        System.out.println("user locaiton : " + user.getLocation().getLocation());
         return "boards/boards-save";
     }
 

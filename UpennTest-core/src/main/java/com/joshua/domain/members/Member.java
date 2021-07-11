@@ -5,7 +5,6 @@ import com.joshua.domain.BaseTimeEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 
@@ -49,9 +48,10 @@ public class Member extends BaseTimeEntity {
 
 
 
-    public Member update (String name, String picture) {
+    public Member update (String name, String picture, Location location) {
         this.name = name;
         this.picture = picture;
+        this.location = location;
 
         return this;
     }

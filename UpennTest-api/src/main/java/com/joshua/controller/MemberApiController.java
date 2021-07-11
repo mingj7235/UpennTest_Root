@@ -16,6 +16,7 @@ public class MemberApiController {
     @PutMapping ("/api/member/update/{id}")
     public Long update (@PathVariable Long id, @RequestBody MemberUpdateRequestDto requestDto) {
 
-        return memberService.
+        return memberService.update(id, requestDto);
+
     }
 }
