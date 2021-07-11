@@ -37,8 +37,8 @@ public class IndexController {
         model.addAttribute("member", user);
 
         //update문이 들어가는지 확인 (save 페이지 들어갈 시) -> default 값 확인
-        user.setLocation(new Location(1L, "SEOUL"));
-        System.out.println("user locaiton : " + user.getLocation().getLocation());
+       // user.setLocation(new Location(1L, "SEOUL"));
+        //System.out.println("user locaiton : " + user.getLocation().getLocation());
         return "boards/boards-save";
     }
 
