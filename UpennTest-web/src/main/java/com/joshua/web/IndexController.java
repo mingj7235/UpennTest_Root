@@ -18,7 +18,7 @@ public class IndexController {
     public String index (Model model) {
 
         model.addAttribute("boards", boardsService.findAllDesc());
-
+        //test
 
 
         return "index";
