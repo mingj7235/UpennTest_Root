@@ -22,9 +22,6 @@ public class Member extends BaseTimeEntity {
     @Column(nullable = false)
     private String email;
 
-    @Column
-    private String picture;
-
     @ManyToOne
     //지연로딩. 즉, 필요할때만 가져오도록. 성능!
     //LAZY의 사용은 proxy를 통해 조회가되며, 실제로 사용하는 시점에 DB를 조회하도록 하는 것이다.
@@ -35,22 +32,18 @@ public class Member extends BaseTimeEntity {
     @Column(nullable = false)
     private Role role;
 
-
-
     @Builder
-    public Member(String name, String email, String picture, Location location, Role role) {
+    public Member(String name, String email, Location location, Role role) {
         this.name = name;
         this.email = email;
-        this.picture = picture;
         this.location = location;
         this.role = role;
     }
 
 
 
-    public Member update (String name, String picture, Location location) {
+    public Member update (String name, Location location) {
         this.name = name;
-        this.picture = picture;
         this.location = location;
 
         return this;

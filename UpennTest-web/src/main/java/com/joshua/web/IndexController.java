@@ -1,9 +1,5 @@
 package com.joshua.web;
 
-import com.joshua.config.auth.LoginUser;
-import com.joshua.config.auth.dto.SessionUser;
-import com.joshua.domain.members.Location;
-import com.joshua.domain.members.Member;
 import com.joshua.dto.BoardsResponseDto;
 import com.joshua.service.boards.BoardsService;
 import lombok.RequiredArgsConstructor;
@@ -19,22 +15,19 @@ public class IndexController {
 
 
     @GetMapping("/")
-    public String index (Model model, @LoginUser SessionUser user) {
+    public String index (Model model) {
 
         model.addAttribute("boards", boardsService.findAllDesc());
 
-        if (user != null) {
-            model.addAttribute("member", user);
-        }
+
 
         return "index";
     }
 
     @GetMapping("/boards/save")
-    public String save (Model model, @LoginUser SessionUser user) {
+    public String save (Model model) {
         System.out.println(">>>>>>>>>>>>>>>>들어옴");
         //System.out.println("user의 로케이션 : " + user.getLocation().getLocation());
-        model.addAttribute("member", user);
 
         //update문이 들어가는지 확인 (save 페이지 들어갈 시) -> default 값 확인
        // user.setLocation(new Location(1L, "SEOUL"));
@@ -43,9 +36,8 @@ public class IndexController {
     }
 
     @GetMapping ("/boards/detail/{id}")
-    public String detail (@PathVariable Long id, @LoginUser SessionUser user, Model model) {
+    public String detail (@PathVariable Long id, Model model) {
         BoardsResponseDto dto = boardsService.findById(id);
-        model.addAttribute("member", user);
         model.addAttribute("boards",dto);
         return "boards/boards-detail";
 

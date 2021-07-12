@@ -30,7 +30,7 @@ public class MemberService {
 
         Member member = memberRepository.findById(id).orElseThrow(
                  () -> new IllegalArgumentException("해당 사용자가 없습니다."));
-        member.update(requestDto.getName(), requestDto.getPicture(), requestDto.getLocation());
+        member.update(requestDto.getName(), requestDto.getLocation());
 
         return id;
     }
