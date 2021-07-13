@@ -5,21 +5,23 @@ import com.joshua.domain.members.Member;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
+@Setter
 @NoArgsConstructor
 public class MemberSaveRequestDto {
     String name;
     String email;
     String password;
-    Location location;
+    Long location_id;
 
     @Builder
-    public MemberSaveRequestDto(String name, String email, String password, Location location) {
+    public MemberSaveRequestDto(String name, String email, String password, Long location_id) {
         this.name = name;
         this.email = email;
         this.password = password;
-        this.location = location;
+        this.location_id = location_id;
     }
 
     public Member toEntity () {
@@ -27,7 +29,6 @@ public class MemberSaveRequestDto {
                 .name(name)
                 .email(email)
                 .password(password)
-                .location(location)
                 .build();
     }
 }

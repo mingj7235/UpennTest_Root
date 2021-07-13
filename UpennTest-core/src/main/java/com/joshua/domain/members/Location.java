@@ -21,8 +21,9 @@ public class Location {
 
     private String location;
 
-    @OneToMany (mappedBy = "location")
-    List<Member> members = new ArrayList<Member>();
+    @OneToOne
+    @JoinColumn (name = "MEMBER_ID")
+    private Member member;
 
     public Location(Long id, String location) {
         this.id = id;

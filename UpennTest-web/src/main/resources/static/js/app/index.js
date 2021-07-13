@@ -90,7 +90,7 @@ var main = {
             email : $('#email').val(),
             name : $('#memberName').val(),
             password : $('#password').val(),
-            location_id : $('#location').val()
+            location_id : $('#location_id').val()
         };
 
         $.ajax ({

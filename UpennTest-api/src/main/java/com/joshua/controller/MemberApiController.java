@@ -13,7 +13,7 @@ public class MemberApiController {
     private final MemberService memberService;
 
     @PostMapping ("/api/member/join")
-    public Long join (@RequestBody MemberSaveRequestDto requestDto, Model model) {
+    public Long join (MemberSaveRequestDto requestDto) {
         System.out.println("이름 : " + requestDto.getName());
         return memberService.save(requestDto);
     }
