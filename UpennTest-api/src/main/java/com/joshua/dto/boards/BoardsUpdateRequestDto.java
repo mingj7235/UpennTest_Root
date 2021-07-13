@@ -1,4 +1,4 @@
-package com.joshua.dto;
+package com.joshua.dto.boards;
 
 import lombok.Builder;
 import lombok.Getter;

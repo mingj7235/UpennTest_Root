@@ -1,7 +1,7 @@
 package com.joshua.controller;
 
-import com.joshua.dto.BoardsSaveRequestDto;
-import com.joshua.dto.BoardsUpdateRequestDto;
+import com.joshua.dto.boards.BoardsSaveRequestDto;
+import com.joshua.dto.boards.BoardsUpdateRequestDto;
 import com.joshua.service.boards.BoardsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;

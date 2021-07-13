@@ -1,23 +1,22 @@
-package com.joshua.dto;
+package com.joshua.dto.boards;
 
 import com.joshua.domain.boards.Boards;
 import com.joshua.domain.members.Member;
 import lombok.Getter;
 
-import java.time.LocalDateTime;
-
 @Getter
-public class BoardsListResponseDto {
+public class BoardsResponseDto {
+
     private Long id;
     private String title;
-    private String author;
+    private String content;
     //private Member author;
-    private LocalDateTime modifiedDate;
+    private String author;
 
-    public BoardsListResponseDto(Boards entity) {
+    public BoardsResponseDto(Boards entity) {
         this.id = entity.getId();
         this.title = entity.getTitle();
+        this.content = entity.getContent();
         this.author = entity.getAuthor();
-        this.modifiedDate = entity.getModifiedDate();
     }
 }

@@ -1,6 +1,6 @@
 package com.joshua.web;
 
-import com.joshua.dto.BoardsResponseDto;
+import com.joshua.dto.boards.BoardsResponseDto;
 import com.joshua.service.boards.BoardsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;

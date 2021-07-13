@@ -1,10 +1,10 @@
 package com.joshua.service.boards;
 
 import com.joshua.domain.boards.Boards;
-import com.joshua.dto.BoardsListResponseDto;
-import com.joshua.dto.BoardsResponseDto;
-import com.joshua.dto.BoardsSaveRequestDto;
-import com.joshua.dto.BoardsUpdateRequestDto;
+import com.joshua.dto.boards.BoardsListResponseDto;
+import com.joshua.dto.boards.BoardsResponseDto;
+import com.joshua.dto.boards.BoardsSaveRequestDto;
+import com.joshua.dto.boards.BoardsUpdateRequestDto;
 import com.joshua.repository.boards.BoardsRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Sort;
