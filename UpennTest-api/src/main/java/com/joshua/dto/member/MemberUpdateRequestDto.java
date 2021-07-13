@@ -1,4 +1,4 @@
-package com.joshua.dto;
+package com.joshua.dto.member;
 
 import com.joshua.domain.members.Location;
 import lombok.Builder;
@@ -11,14 +11,14 @@ import lombok.NoArgsConstructor;
 public class MemberUpdateRequestDto {
 
     private String name;
-    private String picture;
+    private String password;
     private Location location;
 
     @Builder
 
-    public MemberUpdateRequestDto(String name, String picture, Location location) {
+    public MemberUpdateRequestDto(String name, String password, Location location) {
         this.name = name;
-        this.picture = picture;
+        this.password = password;
         this.location = location;
     }
 }

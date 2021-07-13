@@ -1,4 +1,4 @@
-package com.joshua.dto;
+package com.joshua.dto.member;
 
 import com.joshua.domain.members.Location;
 import com.joshua.domain.members.Member;

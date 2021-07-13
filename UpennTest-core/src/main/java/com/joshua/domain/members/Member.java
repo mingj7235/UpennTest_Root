@@ -19,8 +19,11 @@ public class Member extends BaseTimeEntity {
     @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String email;
+
+    @Column(nullable = false)
+    private String password;
 
     @ManyToOne
     //지연로딩. 즉, 필요할때만 가져오도록. 성능!
@@ -28,28 +31,21 @@ public class Member extends BaseTimeEntity {
     @JoinColumn (name = "LOCATION_ID")
     private Location location;
 
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private Role role;
-
     @Builder
-    public Member(String name, String email, Location location, Role role) {
+    public Member(String name, String email, String password, Location location) {
         this.name = name;
         this.email = email;
+        this.password = password;
         this.location = location;
-        this.role = role;
     }
 
-
-
-    public Member update (String name, Location location) {
+    public Member update (String name, String password, Location location) {
         this.name = name;
+        this.password = password;
         this.location = location;
-
         return this;
     }
 
-    public String getRoleKey () {
-        return this.role.getKey();
-    }
+
+
 }
