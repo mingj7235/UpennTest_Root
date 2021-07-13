@@ -10,6 +10,7 @@ import com.joshua.repository.members.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 import java.util.Optional;
 
@@ -30,10 +31,7 @@ public class MemberService {
     public Long save (MemberSaveRequestDto requestDto) {
         Member entity = requestDto.toEntity();
         Optional<Location> location = locationRepository.findById(requestDto.getLocation_id());
-        location.ifPresent(loc->{
-            entity.setLocation(loc);
-            loc.setLocation("chungjkhgffdu");
-        });
+        location.ifPresent(entity::setLocation);
 
         //Optional : get() : O ->
         //orElse ('세팅값') -> get을 하려는데, 값이 있으면 get과 같은 응답을주고, null인경우, '세팅값'을 리턴한다.
@@ -47,9 +45,12 @@ public class MemberService {
 
         Member member = memberRepository.findById(id).orElseThrow(
                  () -> new IllegalArgumentException("해당 사용자가 없습니다."));
-        member.update(requestDto.getName(), requestDto.getPassword(), requestDto.getLocation());
 
-        return id;
+        member.setName(requestDto.getName());
+        member.setPassword(requestDto.getPassword());
+        member.setLocation(locationRepository.findById(requestDto.getLocation_id()).get());
+
+        return memberRepository.save(member).getId();
     }
 
 }

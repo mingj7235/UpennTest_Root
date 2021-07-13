@@ -21,7 +21,7 @@ public class Location {
 
     private String location;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn (name = "MEMBER_ID")
     private Member member;
 

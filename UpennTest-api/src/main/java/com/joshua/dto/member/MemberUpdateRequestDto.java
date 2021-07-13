@@ -12,13 +12,12 @@ public class MemberUpdateRequestDto {
 
     private String name;
     private String password;
-    private Location location;
+    private Long location_id;
 
     @Builder
-
-    public MemberUpdateRequestDto(String name, String password, Location location) {
+    public MemberUpdateRequestDto(String name, String password, Long location_id) {
         this.name = name;
         this.password = password;
-        this.location = location;
+        this.location_id = location_id;
     }
 }
