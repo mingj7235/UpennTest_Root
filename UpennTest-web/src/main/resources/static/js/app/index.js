@@ -13,6 +13,10 @@ var main = {
         $('#btn-delete').on('click', function(){
             _this.deletePost();
         });
+
+        $('#btn-join').on('click', function(){
+            _this.joinMember();
+        });
     },
     savePost : function () {
         var data = {
@@ -79,6 +83,28 @@ var main = {
         }).fail (function(error) {
             alert("에러메세지 : " +JSON.stringify(error));
             console.log("에러메세지 : " +JSON.stringify(error));
+        });
+    },
+    joinMember : function () {
+        var data = {
+            email : $('#email').val(),
+            name : $('#memberName').val(),
+            password : $('#password').val(),
+            location_id : $('#location').val()
+        };
+
+        $.ajax ({
+            type : 'POST',
+            url : '/api/member/join',
+            dataType :'json',
+            contentType : 'application/json; charset=utf-8',
+            data : JSON.stringify(data)        
+        }).done (function() {
+            alert('회원가입을 축하합니다.');
+            window.location.href = "/";
+
+        }).fail (function (error) {
+            alert ('에러메세지 : ' + JSON.stringify(error));
         });
     }
 };
