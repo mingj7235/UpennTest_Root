@@ -15,6 +15,7 @@ public class Boards extends BaseTimeEntity {
 
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @Column (name = "boards_id")
     private Long id;
 
     @Column (length = 500, nullable = false)

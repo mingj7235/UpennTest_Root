@@ -4,6 +4,7 @@ import com.joshua.dto.member.MemberSaveRequestDto;
 import com.joshua.dto.member.MemberUpdateRequestDto;
 import com.joshua.service.member.MemberService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
@@ -12,9 +13,14 @@ public class MemberApiController {
     private final MemberService memberService;
 
     @PostMapping ("/api/member/join")
-    public Long update (@RequestBody MemberSaveRequestDto requestDto) {
+    public Long join (@RequestBody MemberSaveRequestDto requestDto, Model model) {
+        System.out.println("이름 : " + requestDto.getName());
         return memberService.save(requestDto);
     }
+
+//    @PostMapping ("/api/member/login")
+//    public Long login (@RequestBody MemberLoginRequestDto requestDto) {
+//    }
 
     @PutMapping ("/api/member/update/{id}")
     public Long update (@PathVariable Long id, @RequestBody MemberUpdateRequestDto requestDto) {
@@ -22,4 +28,5 @@ public class MemberApiController {
         return memberService.update(id, requestDto);
 
     }
+
 }
